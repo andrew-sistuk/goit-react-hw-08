@@ -1,0 +1,21 @@
+.search-box {
+  margin-bottom: 36px;
+}
+.search-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.search-field {
+  width: 100%;
+  border-radius: 5px;
+  padding: 6px 12px;
+  outline: transparent;
+  border-color: white;
+}
+
+.search-field:hover,
+.search-field:focus {
+  border-color: #646cff;
+}

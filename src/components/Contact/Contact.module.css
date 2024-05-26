@@ -1,0 +1,43 @@
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 12px;
+}
+
+.contact-box:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.contact-box:hover {
+  border-color: #646cff;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-box button {
+  padding: 10px 12px;
+  
+}
+
+.contact-box button:hover {
+  color: #646cff;
+}
+.contact-buttons {
+    display: flex;
+    gap: 12px;
+    height: 50%;
+}
