@@ -1,32 +1,26 @@
 import 'modern-normalize';
+import { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from './redux/contactsOps';
+import { Layout } from 'components';
 import { SkewLoader } from 'react-spinners';
-import { useSelector } from 'react-redux';
 
-import { Layout, ContactForm, SearchBox, ContactList } from 'components';
-
-import { selectContactsLoading, selectContactsError } from './redux/selectors';
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  const loading = useSelector(selectContactsLoading);
-  const error = useSelector(selectContactsError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <Layout>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {loading && <SkewLoader color="#646cff" />}
-      {error ? error : <ContactList />}
+      <Suspense fallback={<SkewLoader color="#646cff" />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactPage />} />
+        </Routes>
+      </Suspense>
     </Layout>
   );
 }

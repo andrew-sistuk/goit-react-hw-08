@@ -5,9 +5,9 @@ import { BsSendArrowUpFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { deleteContact, editContact } from '../../redux/contactsOps';
-import { selectContactsEdit } from '../../redux/selectors';
-import { isEditContact, editName, editNumber } from '../../redux/contactsSlice';
+import { deleteContact, editContact } from '../../redux/contacts/operations';
+import { selectContactsEdit } from '../../redux/contacts/selectors';
+import { isEditContact, editName, editNumber } from '../../redux/contacts/slice';
 
 import css from './Contact.module.css';
 
