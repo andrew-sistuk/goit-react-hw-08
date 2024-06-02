@@ -46,6 +46,7 @@ export function Contact({ contact: { id, name, number } }) {
           <FaUserAstronaut />
           {editingContact.id === id ? (
             <input
+            className={css['edit-contact-input']}
               type="text"
               value={editingContact.name}
               onChange={evt => dispatch(editName(evt.target.value))}
@@ -58,6 +59,7 @@ export function Contact({ contact: { id, name, number } }) {
           <CgSmartphone />
           {editingContact.id === id ? (
             <input
+            className={css['edit-contact-input']}
               type="text"
               onChange={evt => dispatch(editNumber(evt.target.value))}
               value={editingContact.number}

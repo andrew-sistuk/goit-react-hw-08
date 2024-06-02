@@ -6,7 +6,7 @@
   border-radius: 5px;
   padding: 10px 12px;
   margin-bottom: 24px;
-  border: 2px solid white;
+  border: 2px solid #646cff;
 }
 
 .contact-form label {
@@ -14,15 +14,15 @@
 }
 
 .contact-field {
-    width: 100%;
-    border-radius: 5px;
-    padding: 6px 12px;
-    outline: transparent;
-    border-color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background: transparent;
+  outline: transparent;
+  border: 2px solid #646cff;
 }
 
 .contact-field:hover,
 .contact-field:focus {
-    border-color: #646cff;
+  box-shadow: 1px 1px 5px #646cff inset;
 }
-

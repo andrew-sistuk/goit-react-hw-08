@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 10px 12px;
+  border-radius: 10px;
+  padding: 15px 25px;
+  background: transparent;
+  outline: transparent;
+  border: 2px solid #646cff;
 }
 
 .contact-box:not(:last-child) {
@@ -12,7 +14,7 @@
 }
 
 .contact-box:hover {
-  border-color: #646cff;
+  box-shadow: 1px 1px 6px #646cff inset;
 }
 
 .contact-info {
@@ -34,10 +36,24 @@
 }
 
 .contact-box button:hover {
-  color: #646cff;
+  box-shadow: 1px 1px 5px #646cff inset;
 }
+
 .contact-buttons {
     display: flex;
     gap: 12px;
     height: 50%;
+}
+
+.edit-contact-input {
+  border-radius: 5px;
+  padding: 2px 12px;
+  background: transparent;
+  outline: transparent;
+  border: 1px solid #646cff;
+}
+
+.edit-contact-input:hover,
+.edit-contact-input:focus { 
+  box-shadow: 1px 1px 5px #646cff inset;
 }
