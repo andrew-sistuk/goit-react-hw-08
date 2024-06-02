@@ -8,14 +8,21 @@ export default function RegistrationForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values))
+    const darkMode = {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    };
+    dispatch(register(values), darkMode)
       .unwrap()
       .then(reponse => {
         toast.success('Success!!!');
         console.log(reponse);
       })
       .catch(error => {
-        toast.error(error);
+        toast.error(error, darkMode);
         console.log(error);
       });
     actions.resetForm();

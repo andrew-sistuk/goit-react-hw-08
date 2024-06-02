@@ -4,17 +4,40 @@ import { MdDeleteSweep, MdOutlineModeEditOutline } from 'react-icons/md';
 import { BsSendArrowUpFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 
-
 import { deleteContact, editContact } from '../../redux/contacts/operations';
 import { selectContactsEdit } from '../../redux/contacts/selectors';
 import { isEditContact, editName, editNumber } from '../../redux/contacts/slice';
 
 import css from './Contact.module.css';
-
+import toast from 'react-hot-toast';
 
 export function Contact({ contact: { id, name, number } }) {
   const dispatch = useDispatch();
   const editingContact = useSelector(selectContactsEdit);
+
+  const verifyDelete = () => {
+    const darkMode = {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    };
+    toast(t => (
+      <span>
+        Are you sure?
+        <button
+          onClick={() => {
+            dispatch(deleteContact(id));
+            toast.dismiss(t.id);
+          }}
+        >
+          Yes
+        </button>
+        <button onClick={() => toast.dismiss(t.id)}>Cancel</button>
+      </span>
+    ), darkMode);
+  };
 
   return (
     <li className={css['contact-box']}>
@@ -61,7 +84,7 @@ export function Contact({ contact: { id, name, number } }) {
           </button>
         </li>
         <li>
-          <button type="button" onClick={() => dispatch(deleteContact(id))}>
+          <button type="button" onClick={() => verifyDelete()}>
             <MdDeleteSweep />
           </button>
         </li>

@@ -8,14 +8,21 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
+    const darkMode = {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    };
     dispatch(logIn(values))
       .unwrap()
       .then(reponse => {
-        toast.success('Success!!!');
+        toast.success('Success!!!', darkMode);
         console.log(reponse);
       })
       .catch(error => {
-        toast.error(error);
+        toast.error(error, darkMode);
         console.log(error);
       });
 
